@@ -5,7 +5,9 @@
     <insert id="save" parameterType="Admin">
         INSERT  INTO admin(username,password) VALUES (#{username},#{password})
     </insert>
-
+    <select id="queryByUsername" parameterType="java.lang.String" resultType="Admin">
+        SELECT * from admin WHERE username=#{username}
+    </select>
 </mapper>
 
 
