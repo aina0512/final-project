@@ -3,7 +3,8 @@ server:
   context-path: /cmfz
   jsp-servlet:
     init-parameters:
-      develoment: true
+      development: true
+
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

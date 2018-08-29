@@ -17,7 +17,7 @@
 		$(function(){
 			//点击更换验证码：
 			$("#captchaImage").click(function(){//点击更换验证码
-				alert("自己做");
+               // document.getElementById("img").src="img/img";
 			});
 			
 			//  form 表单提交
@@ -31,7 +31,7 @@
 <body>
 	
 		<div class="login">
-			<form id="loginForm" action="../back/index.html" method="post" >
+			<form id="loginForm" action="/" method="post" >
 				
 				<table>
 					<tbody>
@@ -43,7 +43,7 @@
 								用户名:
 							</th>
 							<td>
-								<input type="text"  name="user.name" class="text" value="xxx" maxlength="20"/>
+								<input type="text"  name="username" class="text"  maxlength="20"/>
 							</td>
 					  </tr>
 					  <tr>
@@ -51,7 +51,7 @@
 								密&nbsp;&nbsp;&nbsp;码:
 							</th>
 							<td>
-								<input type="password" name="user.password" class="text" value="xxx" maxlength="20" autocomplete="off"/>
+								<input type="password" name="password" class="text"  maxlength="20" autocomplete="off"/>
 							</td>
 					  </tr>
 					
@@ -60,7 +60,9 @@
 							<th>验证码:</th>
 							<td>
 								<input type="text" id="enCode" name="enCode" class="text captcha" maxlength="4" autocomplete="off"/>
-								<img id="captchaImage" class="captchaImage" src="img/captcha.jpg" title="点击更换验证码"/>
+								<a href="javascript:;"
+								   onclick="document.getElementById('captchaImage').src = '${ pageContext.request.contextPath }/img/image?'+(new Date()).getTime()">
+									<img id="captchaImage" class="captchaImage" src="${ pageContext.request.contextPath }/img/image" title="点击更换验证码"/></a>
 							</td>
 						</tr>					
 					<tr>

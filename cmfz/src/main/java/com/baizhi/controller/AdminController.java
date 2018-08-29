@@ -19,4 +19,5 @@ public class AdminController {
         adminService.save(admin);
         return "index";
     }
+
 }
