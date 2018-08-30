@@ -8,10 +8,10 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" href="css/common.css" type="text/css"></link>
-	<link rel="stylesheet" href="css/login.css" type="text/css"></link>
-	<script type="text/javascript" src="script/jquery.js"></script>
-	<script type="text/javascript" src="script/common.js"></script>
+	<link rel="stylesheet" href="${ pageContext.request.contextPath }/css/common.css" type="text/css"></link>
+	<link rel="stylesheet" href="${ pageContext.request.contextPath }/css/login.css" type="text/css"></link>
+	<script type="text/javascript" src="${ pageContext.request.contextPath }/script/jquery.js"></script>
+	<script type="text/javascript" src="${ pageContext.request.contextPath }/script/common.js"></script>
 	<script type="text/javascript">
 	
 		$(function(){
@@ -22,8 +22,13 @@
 			
 			//  form 表单提交
 			$("#loginForm").bind("submit",function(){
-				alert("自己做");
-				return false;
+
+                    //location.href="/admin/login.do";
+                    if($("input").val()!=null)
+                        return true;
+                    else
+                        return false;
+
 			});
 		});
 	</script>
@@ -31,7 +36,7 @@
 <body>
 	
 		<div class="login">
-			<form id="loginForm" action="/" method="post" >
+			<form id="loginForm" action="${ pageContext.request.contextPath }/admin/login" method="post" >
 				
 				<table>
 					<tbody>

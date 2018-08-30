@@ -22,7 +22,8 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public Admin login(String username,String password) {
         Admin admin = adminDao.queryByUsername(username);
-        if (admin!=null) throw new RuntimeException("用户名不存在，请输入正确用户名");
+        System.out.println(admin);
+        if (admin==null) throw new RuntimeException("用户名不存在，请输入正确用户名");
         if (!password.equals(admin.getPassword())) throw new RuntimeException("密码输入错误，请重新输入");
         return admin;
     }

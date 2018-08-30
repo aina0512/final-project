@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "iconCls": "icon-add",
+    "title": "轮播图",
+    "href": "",
+    "children": [
+      {
+        "id": 2,
+        "iconCls": "icon-add",
+        "title": "轮播图管理",
+        "href": "/datagird/banner.jsp"
+      },
+      {
+        "id": 3,
+        "iconCls": "icon-add",
+        "title": "轮播图管理2",
+        "href": "/datagird/banner.jsp"
+      }
+    ]
+  }
+]
