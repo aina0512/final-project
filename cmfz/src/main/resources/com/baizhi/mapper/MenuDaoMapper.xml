@@ -19,7 +19,7 @@
        SELECT e.id mid,e.title mtitle,e.content mcontent,e.href mhref,e.iconCls miconCls,
         m.id meid,m.title metitle,m.content mecontent,m.href mehref,m.iconCls meiconCls
         from menu e LEFT JOIN
-          menu m ON m.parntId=e.id where e.parntId=0
+          menu m ON m.parentId=e.id where e.parentId=0
     </select>
 </mapper>
 

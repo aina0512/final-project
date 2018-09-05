@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.AlbumDao">
+
+
+    <resultMap id="albums" type="Album">
+        <id property="id" column="aid"/>
+        <result property="title" column="aTitle"/>
+        <result property="count" column="count"/>
+        <result property="corverImg" column="corverImg"/>
+        <result property="score" column="score"/>
+        <result property="author" column="author"/>
+        <result property="broadCast" column="broadCast"/>
+        <result property="brife" column="brife"/>
+        <result property="publicDate" column="publicDate"/>
+        <collection property="children" ofType="Chapter">
+            <id property="id" column="cid"/>
+            <result property="title" column="cTitle"/>
+            <result property="duration" column="duration"/>
+            <result property="size" column="size"/>
+            <result property="audioPath" column="audioPath"/>
+            <result property="parentId" column="parentId"/>
+        </collection>
+    </resultMap>
+    <select id="queryAllAlbum" resultMap="albums">
+        SELECT
+        a.id aid,
+        a.title aTitle,
+        count,
+        corverImg,
+        score,
+        author,
+        broadCast,
+        brife,
+        publicDate,
+        c.id cid,
+        c.title cTitle,
+        c.duration,
+        c.size,
+        c.audioPath,
+        parentId
+        FROM
+        album a
+        LEFT JOIN chapter c
+        on c.parentId=a.id
+    </select>
+
+    <insert id="addAlbum" parameterType="Album">
+        insert into album(title,count,corverImg,score,author,broadCast,brife,publicDate,createDate,status)
+        VALUES(#{title},#{count},#{corverImg},#{score},#{author},#{broadCast},#{brife},#{publicDate},now(),#{status})
+    </insert>
+</mapper>
+
+
+
+
+
+
+
