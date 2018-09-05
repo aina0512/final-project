@@ -12,6 +12,8 @@
 <script type="text/javascript" src="../js/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript" src="../js/jquery.edatagrid.js"></script>
 <script type="text/javascript" src="../js/datagrid-detailview.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/echarts.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/china.js"></script>
 <script type="text/javascript">
 	<!--菜单处理-->
     $(function () {
@@ -20,15 +22,19 @@
             //type: "get",
             dataType: "JSON",
             success: function (data) {
+              // console.log(data)
                 $.each(data, function (index, first) {
-                    var c="";
-                    c = "<p style='text-align: center'>" +
-                        "<a href='#' data-options=\"iconCls:'" +
-                        first.menu.iconCls+
-                        "'\" class='easyui-linkbutton' " +
-                        "onclick=\"addTabs('" + first.menu.iconCls + "','" + first.menu.content + "','" +first.menu.href + "')\">"
-                        + first.menu.content + "</a></p>";
-                    $('#aa').accordion('add', {
+                    var c = "";
+                    /*遍历二级菜单*/
+                    $.each(first.menu, function (index1, second) {
+                        //console.log(second.content);
+                        c += "<p style='text-align: center'>" +
+                            "<a href='#' data-options=\"iconCls:'icon-search'\" class='easyui-linkbutton' " +
+                            "onclick=\"addTabs('" + second.iconCls + "','" + second.title + "','" + second.href + "')\">"
+                            + second.content + "</a></p>";
+                    })
+                    /*生成手风琴*/
+                    $("#aa").accordion('add', {
                         title: first.title,
                         content: c,
                         iconCls: first.iconCls,
@@ -39,14 +45,17 @@
         })
     });
     function addTabs(iconCls, title, href) {
+       // console.log(href)
+       // console.log(title)
         /*创建选项卡*/
         var flag = $("#tt").tabs("exists",title)
+        console.log(flag)
         if (flag){
             $("#tt").tabs("select",title)
-            console.log(href)
         }else {
             $('#tt').tabs('add', {
                 title: title,
+                iconCls:iconCls,
                 selected: true,
                 closable: true,
                 href:"${pageContext.request.contextPath}"+href

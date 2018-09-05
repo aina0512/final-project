@@ -1,28 +1,20 @@
 package com.baizhi.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by aina on 2018/8/29.
  */
 public class Menu implements Serializable{
-    private Integer id;
+    private Integer id;//编号
     private String title;
     private String content;
     private String href;
     private String iconCls;
-    private Menu menu;
+    private List<Menu> menu;
 
     public Menu() {
-    }
-
-    public Menu(Integer id, String title, String content, String href, String iconCls, Menu menu) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.href = href;
-        this.iconCls = iconCls;
-        this.menu = menu;
     }
 
     @Override
@@ -77,11 +69,20 @@ public class Menu implements Serializable{
         this.iconCls = iconCls;
     }
 
-    public Menu getMenu() {
+    public List<Menu> getMenu() {
         return menu;
     }
 
-    public void setMenu(Menu menu) {
+    public void setMenu(List<Menu> menu) {
+        this.menu = menu;
+    }
+
+    public Menu(Integer id, String title, String content, String href, String iconCls, List<Menu> menu) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.href = href;
+        this.iconCls = iconCls;
         this.menu = menu;
     }
 }

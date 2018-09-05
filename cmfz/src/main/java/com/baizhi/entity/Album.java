@@ -8,18 +8,18 @@ import java.util.List;
  * Created by aina on 2018/8/31.
  */
 public class Album implements Serializable{
-    private Integer id;
-    private String title;
-    private Integer count;
-    private String corverImg;
-    private Double score;
-    private String author;
-    private String broadCast;
-    private String brife;
-    private Date publicDate;
-    private Date createDate;
-    private String status;
-    private List<Chapter> children;
+    private Integer id;//编号
+    private String title;//名称
+    private Integer count;//数量
+    private String corverImg;//封面
+    private Double score;//评分
+    private String author;//作者
+    private String broadCast;//播音
+    private String brife;//内容简介
+    private Date publicDate;//发布日期
+    private Date createDate;//上传日期
+    private String status;//状态
+    private List<Chapter> children;//专辑下属章节
 
     public Album() {
     }

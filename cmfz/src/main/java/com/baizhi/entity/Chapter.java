@@ -6,12 +6,12 @@ import java.io.Serializable;
  * Created by aina on 2018/8/31.
  */
 public class Chapter implements Serializable{
-    private int id;
-    private String title;
-    private String duration;
-    private String size;
-    private String audioPath;
-    private int parentId;
+    private int id;//编号
+    private String title;//名称
+    private String duration;//时长
+    private String size;//大小 MB
+    private String audioPath;//音频路径
+    private int parentId;//章节所属专辑id
 
     public Chapter() {
     }

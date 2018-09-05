@@ -7,12 +7,12 @@ import java.util.Date;
  * Created by aina on 2018/8/29.
  */
 public class Banner implements Serializable {
-    private Integer id;
-    private String title;
-    private String imgPath;
-    private String description;
-    private String status;
-    private Date createDate;
+    private Integer id;//编号
+    private String title;//名称
+    private String imgPath;//图片路径
+    private String description;//图片描述
+    private String status;//状态
+    private Date createDate;//上传日期
 
     public Banner() {
     }

@@ -6,9 +6,9 @@ import java.io.Serializable;
  * Created by aina on 2018/8/28.
  */
 public class Admin implements Serializable{
-    private Integer id;
-    private String username;
-    private String password;
+    private Integer id;//编号
+    private String username;//管理员账号
+    private String password;//密码
 
     public Admin() {
     }

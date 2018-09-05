@@ -7,13 +7,13 @@
         <result property="content" column="mcontent"/>
         <result property="href" column="mhref"/>
         <result property="iconCls" column="miconCls"/>
-        <association property="menu" javaType="Menu">
+        <collection property="menu" ofType="Menu" >
             <id  property="id" column="meid"/>
             <result property="title" column="metitle"/>
             <result property="content" column="mecontent"/>
             <result property="href" column="mehref"/>
             <result property="iconCls" column="meiconCls"/>
-        </association>
+        </collection>
     </resultMap>
     <select id="queryAll" resultMap="m1">
        SELECT e.id mid,e.title mtitle,e.content mcontent,e.href mhref,e.iconCls miconCls,
